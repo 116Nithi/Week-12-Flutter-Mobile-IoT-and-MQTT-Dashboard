@@ -46,9 +46,16 @@ class _MqttBasicsScreenState extends State<MqttBasicsScreen> {
   Color _statusColor = Colors.redAccent;
   final List<String> _receivedLogs = [];
 
+  // MQTT callbacks can fire after this screen is closed
+  @override
+  void setState(VoidCallback fn) {
+    if (mounted) super.setState(fn);
+  }
+
   @override
   void dispose() {
     _brokerIpController.dispose();
+    _client?.onDisconnected = null;
     _client?.disconnect();
     super.dispose();
   }
