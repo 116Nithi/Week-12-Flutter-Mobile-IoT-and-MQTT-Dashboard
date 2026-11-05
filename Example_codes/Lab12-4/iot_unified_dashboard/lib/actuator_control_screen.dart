@@ -26,8 +26,15 @@ class _ActuatorControlScreenState extends State<ActuatorControlScreen> {
     _connectMqtt();
   }
 
+  // MQTT callbacks can fire after this screen is closed
+  @override
+  void setState(VoidCallback fn) {
+    if (mounted) super.setState(fn);
+  }
+
   @override
   void dispose() {
+    _client?.onDisconnected = null;
     _client?.disconnect();
     super.dispose();
   }

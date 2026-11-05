@@ -20,8 +20,8 @@
 /* ========================================================
  * 0. การกำหนดค่าเครือข่าย Wi-Fi, Broker และ GPIO
  * ======================================================== */
-#define WIFI_SSID           "AIS 4G Hi-Speed Home WiFi_769475"
-#define WIFI_PASS           "50769475"
+#define WIFI_SSID           "YOUR_WIFI_SSID"
+#define WIFI_PASS           "YOUR_WIFI_PASSWORD"
 
 // หมายเลข IP ของคอมพิวเตอร์ที่รัน Mosquitto Broker (พอร์ต 1883)
 #define MQTT_BROKER_URI     "mqtt://192.168.0.107:1883"
